@@ -19,22 +19,22 @@ clipboard = ["gui", "egui_winit_vulkano/clipboard"]
 
 [dependencies]
 approx = "0.5.1"
-egui_winit_vulkano = { version = "0.27", optional = true, default_features = false, features = [] }
-image = "0.24.7"
-raw-window-handle = "0.5"
-vulkano = "0.34"
-vulkano-shaders = "0.34"
-vulkano-util = "0.34"
-winit = "0.28"
+egui_winit_vulkano = { version = "0.28.0", optional = true, default_features = false, features = [] }
+image = "0.25.6"
+raw-window-handle = "0.6.2"
+vulkano = "0.35.1"
+vulkano-shaders = "0.35.0"
+vulkano-util = "0.35.0"
+winit = "0.30.11"
 
-[dependencies.bevy]
-default-features = false
-features = []
-version = "0.12"
+bevy = {workspace = true}
+thiserror = "1.0.69"
+tracing = "0.1.41"
+futures-lite = "2.6.0"
 
 [dev-dependencies]
 anyhow = "1.0.75"
-rand = "0.8.5"
+rand = "0.9.1"
 
 [[example]]
 name = "game_of_life"
