@@ -1,34 +1,17 @@
 [package]
-authors = ["Okko Hakola <okkohakola@gmail.com>"]
-categories = ["gui", "game-development"]
-description = "Vulkano Backend for Bevy"
-edition = "2021"
-homepage = "https://github.com/hakolao/bevy_vulkano"
-keywords = ["gui", "imgui", "vulkano", "gamedev", "bevy"]
-license = "Apache-2.0"
+
+edition = "2024"
 name = "bevy_vulkano"
-readme = "README.md"
-repository = "https://github.com/hakolao/bevy_vulkano"
-version = "0.14.0"
 
 [features]
-default = []
-gui = ["egui_winit_vulkano"]
-links = ["gui", "egui_winit_vulkano/links"]
-clipboard = ["gui", "egui_winit_vulkano/clipboard"]
 
 [dependencies]
-approx = "0.5.1"
-egui_winit_vulkano = { version = "0.28.0", optional = true, default_features = false, features = [] }
-image = "0.25.6"
 raw-window-handle = "0.6.2"
 vulkano = "0.35.1"
 vulkano-shaders = "0.35.0"
 vulkano-util = "0.35.0"
-winit = "0.30.11"
 
 bevy = {workspace = true}
-thiserror = "1.0.69"
 tracing = "0.1.41"
 futures-lite = "2.6.0"
 

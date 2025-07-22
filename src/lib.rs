@@ -1,7 +1,7 @@
 mod pipeline_cache;
 mod sync_world;
 
-use crate::sync_world::{entity_sync_system, SyncToRenderWorld};
+use crate::sync_world::{SyncToRenderWorld, entity_sync_system};
 use bevy::ecs::schedule::{ScheduleBuildSettings, ScheduleLabel};
 use bevy::ecs::system::SystemState;
 use bevy::log::tracing;
@@ -9,7 +9,7 @@ use bevy::prelude::*;
 use bevy::render::render_resource::{PipelineCache, ShaderLoader};
 use bevy::render::renderer::render_system;
 use bevy::render::sync_world::TemporaryRenderEntity;
-use bevy::render::{render_graph, Extract, MainWorld, Render, RenderApp, RenderSet};
+use bevy::render::{Extract, MainWorld, Render, RenderApp, RenderSet, render_graph};
 use bevy::window::{PrimaryWindow, RawHandleWrapperHolder};
 use std::ops::{Deref, DerefMut};
 use vulkano_util::context::VulkanoConfig;
@@ -49,7 +49,7 @@ fn extract(main_world: &mut World, render_world: &mut World) {
 
     // move the app world back, as if nothing happened.
     let inserted_world = render_world.remove_resource::<MainWorld>().unwrap();
-    let scratch_world = core::mem::replace(main_world, inserted_world.0);
+    let scratch_world = core::mem::replace(main_world, *inserted_world);
     main_world.insert_resource(ScratchMainWorld(scratch_world));
 }
 
